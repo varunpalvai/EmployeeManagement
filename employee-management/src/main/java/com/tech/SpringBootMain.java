@@ -1,5 +1,5 @@
-package com.tech.controller;
 
+package com.tech;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

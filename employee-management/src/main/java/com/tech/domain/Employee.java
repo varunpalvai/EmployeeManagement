@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,9 +28,9 @@ public class Employee {
 	@Column(name = "DESIGNATION")
 	private String designation;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "EMPLOYEE_ID")
-	private List<Skill> skills;
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "EMPLOYEE_ID")
+//	private List<Skill> skills;
 	
 	public Employee () {
 		
@@ -72,10 +74,11 @@ public class Employee {
 	public void setSkills(List<Skill> skills) {
 		this.skills = skills;
 	}
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "employee_skill", 
+    	joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "employee_id"), 
+    	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "skill_id"))
+	private List<Skill> skills;
 
-	
-	
-	
-
-	
 }

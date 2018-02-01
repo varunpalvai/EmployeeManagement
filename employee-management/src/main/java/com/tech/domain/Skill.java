@@ -1,6 +1,6 @@
 package com.tech.domain;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ public class Skill {
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
 	@Column (name = "SKILL_ID")
-    private Long skil_id;
+    private Long skillId;
 	
     @Column (name = "SKILL_NAME")
     private String name;
@@ -26,12 +26,12 @@ public class Skill {
     @Column (name = "LEVEL")
     private Long level;
 
-	public Long getSkil_id() {
-		return skil_id;
+	public Long getSkillId() {
+		return skillId;
 	}
-
-	public void setSkil_id(Long skil_id) {
-		this.skil_id = skil_id;
+	
+	public void setSkillId(Long skillId) {
+		this.skillId = skillId;
 	}
 
 	public String getName() {
@@ -51,14 +51,15 @@ public class Skill {
 	}
 	
 	@ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
-	private List<Employee> employees;
+	private Set<Employee> employees;
 	
-	public List<Employee> getEmployees() {
+	public Set<Employee> getEmployees() {
 		return employees;
 	}
 	
-	public void setEmployees(List<Employee> employees) {
+	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
+	
 	
 }

@@ -1,8 +1,23 @@
 package com.tech.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="EMPLOYEE")
 public class Employee {
+	@Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
 	private int id;
+	
+	@Column (name="EMPLOYEE_NAME")
 	private String name;
+	
+	@Column(name = "DESIGNATION")
 	private String designation;
 
 	public Employee(int id, String name, String designation) {

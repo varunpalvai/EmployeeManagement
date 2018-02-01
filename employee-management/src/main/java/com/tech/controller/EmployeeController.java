@@ -6,15 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tech.domain.Employee;
+import com.tech.service.EmployeeService;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
+	@Autowired
+	private EmployeeService employeeService;
 	
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
@@ -52,5 +56,23 @@ public class EmployeeController {
 		
 		return employeetList;
 		
+	}
+	
+	@RequestMapping(value = "/employees", method = RequestMethod.GET)
+	public List<Employee> getEmployees() {
+		List<Employee> employeetList = employeeService.getEmployees();
+		return employeetList;
+	}
+	
+	@RequestMapping(value = "/employee", method = RequestMethod.POST)
+	public Employee save(Employee e) {
+		Employee newEmployee = employeeService.save(e);
+		return newEmployee;
+	}
+	
+	@RequestMapping(value = "/employee", method = RequestMethod.DELETE)
+	public String delete(Long employeeId) {
+		employeeService.delete(employeeId);
+		return "employee deleted successfully";
 	}
 }

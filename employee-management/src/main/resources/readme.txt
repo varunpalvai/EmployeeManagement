@@ -1,0 +1,23 @@
+1.After application is up please execute the below scripts
+
+INSERT INTO Users (id, username, password) VALUES (1, 'shiva', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu');
+INSERT INTO Users (id, username, password) VALUES (2, 'balram', '$2a$04$PCIX2hYrve38M7eOcqAbCO9UqjYg7gfFNpKsinAxh99nms9e.8HwK');
+INSERT INTO Users (id, username, password) VALUES (3, 'varun', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu');
+
+2.To get the access_token run the below url from postman and use this token for subsequent requests
+
+	URL : http://localhost:8090/oauth/token
+	TYPE : POST
+	username : Shiva
+	password : password
+	grant_type : password
+	
+	Response :
+	{
+    	"access_token": "d00b01e1-667a-4cd9-af3d-153acd7ea9ab",
+   		"token_type": "bearer",
+    	"refresh_token": "78c7adbe-7569-49c7-91d4-b2ea1dee6e7f",
+    	"expires_in": 3599,
+    	"scope": "read write trust"
+	}
+	

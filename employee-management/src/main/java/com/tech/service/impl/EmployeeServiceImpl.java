@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tech.dao.EmployeeDao;
 import com.tech.domain.Employee;
 import com.tech.service.EmployeeService;
 
+@Service(value = "employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeDao employeeDao;

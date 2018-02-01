@@ -20,4 +20,16 @@ INSERT INTO Users (id, username, password) VALUES (3, 'varun', '$2a$04$I9Q2sDc4Q
     	"expires_in": 3599,
     	"scope": "read write trust"
 	}
-	
+3. To add an employee use the below 
+URL : http://localhost:8090/employee/employee?access_token=ad7af328-9da6-49ae-a23e-89444123ff59
+TYPE : POST
+REQUEST BODY PRAMAMS :
+
+{
+    "name": "kiran",
+    "designation": "TeamLead"
+}
+
+4. To get all employees 
+URL : http://localhost:8090/employee/employees?access_token=ad7af328-9da6-49ae-a23e-89444123ff59
+TYPE : GET

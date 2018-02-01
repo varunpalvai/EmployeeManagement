@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,9 +33,9 @@ public class EmployeeController {
 		employeeDB = new HashMap<String, List<Employee>>();
 
 		List<Employee> lst = new ArrayList<Employee>();
-		Employee emp = new Employee(1, "rajesh", "TeamLead");
+		Employee emp = new Employee(1L, "rajesh", "TeamLead");
 		lst.add(emp);
-		emp = new Employee(2, "Lokesh", "SeniorSoftwareEngineer");
+		emp = new Employee(2L, "Lokesh", "SeniorSoftwareEngineer");
 		lst.add(emp);
 
 		employeeDB.put("gspann", lst);
@@ -70,8 +71,8 @@ public class EmployeeController {
 		return newEmployee;
 	}
 	
-	@RequestMapping(value = "/employee", method = RequestMethod.DELETE)
-	public String delete(Long employeeId) {
+	@RequestMapping(value = "/employee/{employeeId}", method = RequestMethod.DELETE)
+	public String delete(@PathVariable(name = "employeeId") Long employeeId) {
 		employeeService.delete(employeeId);
 		return "employee deleted successfully";
 	}

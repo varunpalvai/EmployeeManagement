@@ -12,26 +12,30 @@ import javax.persistence.Table;
 public class Employee {
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-	private int id;
+	private Long id;
 	
 	@Column (name="EMPLOYEE_NAME")
 	private String name;
 	
 	@Column(name = "DESIGNATION")
 	private String designation;
+	
+	public Employee () {
+		
+	}
 
-	public Employee(int id, String name, String designation) {
+	public Employee(Long id, String name, String designation) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.designation = designation;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

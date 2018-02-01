@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.tech.dao.UserDao;
-import com.tech.model.User;
+import com.tech.domain.User;
 import com.tech.service.UserService;
 
 

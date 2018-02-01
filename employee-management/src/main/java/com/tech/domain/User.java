@@ -1,4 +1,4 @@
-package com.tech.model;
+package com.tech.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

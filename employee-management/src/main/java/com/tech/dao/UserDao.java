@@ -4,7 +4,7 @@ package com.tech.dao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tech.model.User;
+import com.tech.domain.User;
 
 @Repository
 public interface UserDao extends CrudRepository<User, Long> {

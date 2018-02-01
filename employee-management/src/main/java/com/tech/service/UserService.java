@@ -3,7 +3,7 @@ package com.tech.service;
 
 import java.util.List;
 
-import com.tech.model.User;
+import com.tech.domain.User;
 
 public interface UserService {
 

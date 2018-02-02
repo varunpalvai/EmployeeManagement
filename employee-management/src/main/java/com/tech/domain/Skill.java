@@ -11,9 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 @Table (name = "SKILL")
 public class Skill {
+	
+	public Skill() {
+		
+	}
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -51,6 +59,8 @@ public class Skill {
 	}
 	
 	@ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
+	//@JsonBackReference
+	@JsonIgnore
 	private Set<Employee> employees;
 	
 	public Set<Employee> getEmployees() {

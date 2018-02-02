@@ -1,6 +1,6 @@
 package com.tech.domain;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name="EMPLOYEE")
@@ -27,10 +29,6 @@ public class Employee {
 	
 	@Column(name = "DESIGNATION")
 	private String designation;
-	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "EMPLOYEE_ID")
-//	private List<Skill> skills;
 	
 	public Employee () {
 		
@@ -67,11 +65,11 @@ public class Employee {
 		this.designation = designation;
 	}
 
-	public List<Skill> getSkills() {
+	public Set<Skill> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(List<Skill> skills) {
+	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
 	}
 	
@@ -79,6 +77,7 @@ public class Employee {
     @JoinTable(name = "employee_skill", 
     	joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "employee_id"), 
     	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "skill_id"))
-	private List<Skill> skills;
+	//@JsonManagedReference
+	private Set<Skill> skills;
 
 }

@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tech.dao.EmployeeRepository;
 import com.tech.domain.Employee;
+import com.tech.repository.EmployeeRepository;
 import com.tech.service.EmployeeService;
 
 @Service(value = "employeeService")

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tech.dao.SkillRepository;
 import com.tech.domain.Skill;
+import com.tech.repository.SkillRepository;
 import com.tech.service.SkillService;
 
 @Service (value = "skillService")

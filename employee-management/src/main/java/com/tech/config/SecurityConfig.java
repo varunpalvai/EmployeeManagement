@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/api-docs/**").permitAll();
+                .antMatchers("/api-docs/**").permitAll().and().formLogin().permitAll();
     }
 
     @Bean

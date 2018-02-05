@@ -5,7 +5,11 @@ angular.module('poc', [
    
   ])
   
-  .config(function ($locationProvider , $stateProvider, $urlRouterProvider) {
+  .config(function ($locationProvider , $stateProvider, $urlRouterProvider,$httpProvider) {
+	  
+	
+		    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 	 
     $locationProvider.hashPrefix('');
     

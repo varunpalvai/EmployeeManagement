@@ -15,23 +15,23 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-@Entity
-@Table (name = "SKILL")
+//@Entity
+//@Table (name = "SKILL")
 public class Skill {
 	
 	public Skill() {
 		
 	}
 	
-	@Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-	@Column (name = "SKILL_ID")
+	//@Id
+    //@GeneratedValue(strategy= GenerationType.AUTO)
+	//@Column (name = "SKILL_ID")
     private Long skillId;
 	
-    @Column (name = "SKILL_NAME")
+    //@Column (name = "SKILL_NAME")
     private String name;
     
-    @Column (name = "LEVEL")
+    //@Column (name = "LEVEL")
     private Long level;
 
 	public Long getSkillId() {
@@ -58,9 +58,9 @@ public class Skill {
 		this.level = level;
 	}
 	
-	@ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
+	//@ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
 	//@JsonBackReference
-	@JsonIgnore
+	//@JsonIgnore
 	private Set<Employee> employees;
 	
 	public Set<Employee> getEmployees() {

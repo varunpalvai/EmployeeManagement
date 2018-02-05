@@ -1,9 +1,12 @@
 package com.tech.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -93,19 +96,24 @@ public class Employee {
 		this.designation = designation;
 	}
 
-	public Set<Skill> getSkills() {
+	public Set<String> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(Set<Skill> skills) {
+	public void setSkills(Set<String> skills) {
 		this.skills = skills;
 	}
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "employee_skill", 
-    	joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "employee_id"), 
-    	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "skill_id"))
-	//@JsonManagedReference
-	private Set<Skill> skills;
+	@ElementCollection
+    @CollectionTable(name = "employee_skill", joinColumns = @JoinColumn(name = "employee_id"))
+    @Column(name = "skill_id")
+    private Set<String> skills = new HashSet<>();
+	
+//	@ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "employee_skill", 
+//    	joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "employee_id"), 
+//    	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "skill_id"))
+//	//@JsonManagedReference
+//	private Set<Skill> skills;
 
 }

@@ -19,22 +19,22 @@ public class SkillController {
 	@Autowired
 	private SkillService skillService;
 	
-	@RequestMapping(value = "/skills", method = RequestMethod.GET)
-	public List<Skill> getSkills() {
-		List<Skill> skillList = skillService.getSkills();
-		return skillList;
-	}
-	
-	@RequestMapping(value = "/skill", method = RequestMethod.POST)
-	public Skill save(@RequestBody Skill skill) {
-		Skill newSkill = skillService.save(skill);
-		return newSkill;
-	}
-	
-	@RequestMapping(value = "/{skillId}", method = RequestMethod.DELETE)
-	public String delete(@PathVariable(name = "skillId") Long skillId) {
-		skillService.delete(skillId);
-		return "skill deleted successfully";
-	}
+//	@RequestMapping(value = "/skills", method = RequestMethod.GET)
+//	public List<Skill> getSkills() {
+//		List<Skill> skillList = skillService.getSkills();
+//		return skillList;
+//	}
+//	
+//	@RequestMapping(value = "/skill", method = RequestMethod.POST)
+//	public Skill save(@RequestBody Skill skill) {
+//		Skill newSkill = skillService.save(skill);
+//		return newSkill;
+//	}
+//	
+//	@RequestMapping(value = "/{skillId}", method = RequestMethod.DELETE)
+//	public String delete(@PathVariable(name = "skillId") Long skillId) {
+//		skillService.delete(skillId);
+//		return "skill deleted successfully";
+//	}
 
 }

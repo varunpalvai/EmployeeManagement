@@ -6,8 +6,8 @@ import com.tech.domain.Skill;
 
 public interface SkillService {
 	
-	public Skill save(Skill skill);
-	public void delete(Long skillId);
-	public List<Skill> getSkills();
+//	public Skill save(Skill skill);
+//	public void delete(Long skillId);
+//	public List<Skill> getSkills();
 
 }

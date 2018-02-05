@@ -34,6 +34,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.findAll().iterator().forEachRemaining(employeeList::add);
 		return employeeList;
 	}
+
+	@Override
+	public Employee get(Long employeeId) {
+		return employeeRepository.findOne(employeeId);
+	}
 	
 //	@Override
 //	public List<Employee> getEmployees(String skill) {

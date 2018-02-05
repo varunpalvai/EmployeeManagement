@@ -24,21 +24,49 @@ public class Employee {
 	@Column (name = "EMPLOYEE_ID")
 	private Long employeeId;
 	
+	@Column (name = "REGISTERED_ID")
+	private String registeredId;
+	
 	@Column (name = "EMPLOYEE_NAME")
 	private String employeeName;
 	
 	@Column(name = "DESIGNATION")
 	private String designation;
 	
+	@Column(name = "PROJECT_NAME")
+	private String projectName;
+	
+	@Column(name = "IS_IN_PROJECT")
+	private String isInProject;
+	
+	
+	public void setIsInProject(String isInProject) {
+		this.isInProject = isInProject;
+	}
+	
+	public String getIsInProject() {
+		return isInProject;
+	}
+	
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	
+	public String getProjectName() {
+		return projectName;
+	}
+	
 	public Employee () {
 		
 	}
 
-	public Employee(Long id, String name, String designation) {
+	public Employee(Long id, String name, String designation, String projectName, String isInProject) {
 		super();
 		this.employeeId = id;
 		this.employeeName = name;
 		this.designation = designation;
+		this.projectName = projectName;
+		this.isInProject = isInProject;
 	}
 
 	public Long getEmployeeId() {

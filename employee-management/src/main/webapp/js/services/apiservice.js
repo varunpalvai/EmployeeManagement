@@ -29,10 +29,10 @@ angular.module('poc') .service('serviceCalls', function ($q,$rootScope,$http)  {
         	        }
             };
 
-    	$http.post($rootScope.URL+'/oauth/token',$rootScope.config,user)
+    	$http.post($rootScope.URL+'/oauth/token',user,$rootScope.config)
     .then(function(response) {
         console.log('registration service success');
-        console.log(JSON.stringify(response.data));
+        
        
        
         

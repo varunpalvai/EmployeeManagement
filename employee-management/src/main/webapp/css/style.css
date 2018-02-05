@@ -65,7 +65,7 @@
 
 /****** LOGIN MODAL ******/
 .back-ground {
-     background-image: url('background.jpg') ;  background-position: center ;
+     background-image: url('background.jpg') ;  background-position: center ; position:absolute;
 }
 
 .loginmodal-container {

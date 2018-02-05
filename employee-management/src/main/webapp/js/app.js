@@ -19,10 +19,10 @@ angular.module('poc', [
            controller:'loginController',
           
        
-     }).state('registration', {
-         url: '/registration',
-         templateUrl: '/views/registration/registration.html' ,
-         controller:'RegistrationController',
+     }).state('dashboard', {
+         url: '/dashboard',
+         templateUrl: '/views/dashboard.html' ,
+         controller:'dashboardController',
          
      
    });

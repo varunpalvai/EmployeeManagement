@@ -48,7 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		List<Employee> employeeList = new ArrayList<>();
 		employeeRepository.findAll().iterator().forEachRemaining(employeeList::add);
 		Map<String, List<Integer>> theMap = getDashboardMap(employeeList);
-		theMap.put("All", getAllEmployeesProjectAndBenchDetails(theMap));
+		//theMap.put("All", getAllEmployeesProjectAndBenchDetails(theMap));
 		return theMap;
 	}
 	
@@ -79,7 +79,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 						value ++;
 						employeeCount.set(0, value);
 					} else {
-						employeeCount.set(0, value);
+						employeeCount.set(0, value++);
 					}
 				} 
 				
@@ -92,7 +92,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 						value ++;
 						employeeCount.set(1, value);
 					} else {
-						employeeCount.set(1, value);
+						employeeCount.set(1, value++);
 					}
 				} 
 				
@@ -124,20 +124,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 		theMap.put("All", employeeCount);
 	}
 	
-	private List<Integer> getAllEmployeesProjectAndBenchDetails(Map<String, List<Integer>> theMap) {
-		List<Integer> employeeCount = new ArrayList<Integer>(2);
-		Integer inProjectCount = 0;
-		Integer inBenchCount = 0;
-		
-		for(String skill : theMap.keySet()) {
-			List<Integer> skillCount = theMap.get(skill);
-			inProjectCount = inProjectCount+skillCount.get(0);
-			inBenchCount = inProjectCount+skillCount.get(1);
-		}
-		
-		employeeCount.add(inProjectCount);
-		employeeCount.add(inBenchCount);
-		return employeeCount;
-	}
-	
+//	private List<Integer> getAllEmployeesProjectAndBenchDetails(Map<String, List<Integer>> theMap) {
+//		List<Integer> employeeCount = new ArrayList<Integer>(2);
+//		Integer inProjectCount = 0;
+//		Integer inBenchCount = 0;
+//		
+//		for(String skill : theMap.keySet()) {
+//			List<Integer> skillCount = theMap.get(skill);
+//			inProjectCount = inProjectCount+skillCount.get(0);
+//			inBenchCount = inProjectCount+skillCount.get(1);
+//		}
+//		
+//		employeeCount.add(inProjectCount);
+//		employeeCount.add(inBenchCount);
+//		return employeeCount;
+//	}
+//	
 }

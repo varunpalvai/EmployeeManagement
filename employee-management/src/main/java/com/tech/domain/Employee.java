@@ -42,6 +42,13 @@ public class Employee {
 	@Column(name = "IS_IN_PROJECT")
 	private String isInProject;
 	
+	public void setRegisteredId(String registeredId) {
+		this.registeredId = registeredId;
+	}
+	
+	public String getRegisteredId() {
+		return registeredId;
+	}
 	
 	public void setIsInProject(String isInProject) {
 		this.isInProject = isInProject;

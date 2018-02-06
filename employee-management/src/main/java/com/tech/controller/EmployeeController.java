@@ -48,7 +48,7 @@ public class EmployeeController {
 		return "employee deleted successfully";
 	}
 	
-	@RequestMapping(value = "/employee/employeeDashboard", method = RequestMethod.GET)
+	@RequestMapping(value = "/employee/getEmployeeDashboard", method = RequestMethod.GET)
 	public Map<String,List<Integer>> getEmployeesForDashboard() {
 		return employeeService.getAllEmployeesForDashboard();
 	}

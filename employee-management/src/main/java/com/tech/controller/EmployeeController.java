@@ -36,6 +36,12 @@ public class EmployeeController {
 		return newEmployee;
 	}
 	
+	@RequestMapping(value = "/employee", method = RequestMethod.PUT)
+	public Employee update(@RequestBody Employee e) {
+		Employee employee = employeeService.update(e);
+		return employee;
+	}
+	
 	@RequestMapping(value = "/employee/{employeeId}", method = RequestMethod.GET)
 	public Employee get(@PathVariable(name = "employeeId") Long employeeId) {
 		Employee employee = employeeService.get(employeeId);

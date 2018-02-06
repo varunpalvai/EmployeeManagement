@@ -48,8 +48,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 		List<Employee> employeeList = new ArrayList<>();
 		employeeRepository.findAll().iterator().forEachRemaining(employeeList::add);
 		Map<String, List<Integer>> theMap = getDashboardMap(employeeList);
-		//theMap.put("All", getAllEmployeesProjectAndBenchDetails(theMap));
 		return theMap;
+	}
+	
+	@Override
+	public Employee update(Employee e) {
+		Employee oldEmployee = employeeRepository.findOne(e.getEmployeeId());
+		if (oldEmployee != null) {
+			oldEmployee.setDesignation(e.getDesignation());
+			oldEmployee.setEmployeeName(e.getEmployeeName());
+			oldEmployee.setIsInProject(e.getIsInProject());
+			oldEmployee.setRegisteredId(e.getRegisteredId());
+			oldEmployee.setSkills(e.getSkills());
+			return employeeRepository.save(oldEmployee);
+		}
+		return null;
 	}
 	
 	private Map<String, List<Integer>> getDashboardMap(List<Employee> employeeList) {

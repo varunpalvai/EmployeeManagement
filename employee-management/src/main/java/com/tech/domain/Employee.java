@@ -3,7 +3,6 @@ package com.tech.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -12,11 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -28,18 +24,22 @@ public class Employee {
 	private Long employeeId;
 	
 	@Column (name = "REGISTERED_ID")
+	@NotNull
 	private String registeredId;
 	
 	@Column (name = "EMPLOYEE_NAME")
+	@NotNull
 	private String employeeName;
 	
 	@Column(name = "DESIGNATION")
+	@NotNull
 	private String designation;
 	
 	@Column(name = "PROJECT_NAME")
 	private String projectName;
 	
 	@Column(name = "IS_IN_PROJECT")
+	@NotNull
 	private String isInProject;
 	
 	public void setRegisteredId(String registeredId) {

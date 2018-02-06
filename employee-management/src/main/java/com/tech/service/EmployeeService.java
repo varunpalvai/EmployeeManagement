@@ -10,6 +10,6 @@ public interface EmployeeService {
 	public void delete(Long employeeId);
 	public List<Employee> getEmployees();
 	public Employee get(Long employeeId);
-//	public List<Employee> getEmployees(String skill);
 	public Map<String, List<Integer>> getAllEmployeesForDashboard();
+	public Employee update(Employee e);
 }

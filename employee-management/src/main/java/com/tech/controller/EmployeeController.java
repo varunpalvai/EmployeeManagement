@@ -14,7 +14,6 @@ import com.tech.domain.Employee;
 import com.tech.service.EmployeeService;
 
 @RestController
-@RequestMapping("/employee")
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
@@ -49,8 +48,8 @@ public class EmployeeController {
 		return "employee deleted successfully";
 	}
 	
-	@RequestMapping(value = "/getEmployeesDashboard", method = RequestMethod.GET)
-	public Map<String,List<Integer>> getAllEmployeesForDashboard() {
+	@RequestMapping(value = "/employee/employeeDashboard", method = RequestMethod.GET)
+	public Map<String,List<Integer>> getEmployeesForDashboard() {
 		return employeeService.getAllEmployeesForDashboard();
 	}
 }

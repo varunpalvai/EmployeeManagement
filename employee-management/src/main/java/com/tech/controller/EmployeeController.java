@@ -1,6 +1,7 @@
 package com.tech.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,5 +47,10 @@ public class EmployeeController {
 	public String delete(@PathVariable(name = "employeeId") Long employeeId) {
 		employeeService.delete(employeeId);
 		return "employee deleted successfully";
+	}
+	
+	@RequestMapping(value = "/getEmployeesDashboard", method = RequestMethod.GET)
+	public Map<String,List<Integer>> getAllEmployeesForDashboard() {
+		return employeeService.getAllEmployeesForDashboard();
 	}
 }

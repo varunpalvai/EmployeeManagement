@@ -76,10 +76,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 					Integer value = 0;
 					if (theMap.get(skill) != null) {
 						value = theMap.get(skill).get(0);
-						value ++;
+						value = value + 1;
 						employeeCount.set(0, value);
 					} else {
-						employeeCount.set(0, value++);
+						employeeCount.set(0, value + 1);
 					}
 				} 
 				
@@ -89,10 +89,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 					Integer value = 0;
 					if (theMap.get(skill) != null) {
 						value = theMap.get(skill).get(1);
-						value ++;
+						value = value + 1;
 						employeeCount.set(1, value);
 					} else {
-						employeeCount.set(1, value++);
+						employeeCount.set(1, value + 1);
 					}
 				} 
 				

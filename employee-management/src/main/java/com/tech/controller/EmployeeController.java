@@ -49,9 +49,10 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/employee/{employeeId}", method = RequestMethod.DELETE)
-	public String delete(@PathVariable(name = "employeeId") Long employeeId) {
+	public void delete(@PathVariable(name = "employeeId") Long employeeId) {
 		employeeService.delete(employeeId);
-		return "employee deleted successfully";
+		
+		
 	}
 	
 	@RequestMapping(value = "/employee/getEmployeeDashboard", method = RequestMethod.GET)

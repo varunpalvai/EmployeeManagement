@@ -6,10 +6,11 @@
                     template: '<div></div>',
                     scope: '@',
                     link: function (scope, element) {
-                    	$timeout(function(){
-                    		var chart= Highcharts.chart(element[0], scope.options);	
                     	
-                    	},0);
+                    	scope.drawHighChart(element[0]);
+                    		
+                    	
+                    	
                        
                     }
                 };

@@ -56,6 +56,12 @@
     color: blue !important;
 }
 
+.icon-button {
+padding: 0px;
+    margin-right: 2px;
+    height: 30px;
+}
+
 
 .active {
     background-color: #e0dbdb !important;

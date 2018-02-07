@@ -47,4 +47,99 @@ angular.module('poc') .service('serviceCalls', function ($q,$rootScope,$http)  {
 	
 };
 
+
+////////////////
+this.addEmployee=function(emp){
+	   
+	    	var differed=$q.defer();
+	    	
+
+	    	$http.post($rootScope.URL+'/employee',emp,$rootScope.config)
+	    .then(function(response) {
+	        console.log('registration service success');
+	        
+	        differed.resolve(response);
+	    }).catch(function(response){
+
+	    	differed.reject(response);
+	    });
+	    return differed.promise;
+		
+	};
+	
+////////////////
+	this.editEmployee=function(emp){
+		   
+    	var differed=$q.defer();
+    	
+
+    	$http.put($rootScope.URL+'/employee',emp,$rootScope.config)
+    .then(function(response) {
+        console.log('registration service success');
+        
+        differed.resolve(response);
+    }).catch(function(response){
+
+    	differed.reject(response);
+    });
+    return differed.promise;
+	
+};
+
+////////////////
+this.deleteEmployee=function(empid){
+	   
+	var differed=$q.defer();
+	
+
+	$http.delete($rootScope.URL+'/employee/'+empid,$rootScope.config)
+.then(function(response) {
+    console.log('delete service success');
+    
+    differed.resolve(response);
+}).catch(function(response){
+
+	differed.reject(response);
+});
+return differed.promise;
+
+};
+
+////////////////
+	this.getEmployees=function(emp){
+		   
+		    	var differed=$q.defer();
+		    	
+
+		    	$http.get($rootScope.URL+'/employees',$rootScope.config)
+		    .then(function(response) {
+		        console.log('registration service success');
+		        
+		        differed.resolve(response);
+		    }).catch(function(response){
+
+		    	differed.reject(response);
+		    });
+		    return differed.promise;
+			
+		};
+		//////////
+		this.getEmployeeStats=function(){
+			   
+	    	var differed=$q.defer();
+	    	
+
+	    	$http.get($rootScope.URL+'/employee/getEmployeeDashboard',$rootScope.config)
+	    .then(function(response) {
+	        console.log('stat service success');
+	        
+	        differed.resolve(response);
+	    }).catch(function(response){
+
+	    	differed.reject(response);
+	    });
+	    return differed.promise;
+		
+	};
+
 });

@@ -10,12 +10,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand newcolor" href="#">Talent Acquisition</a>
+                <a class="navbar-brand newcolor" href="">Talent Acquisition</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="icon-bar"><a  href="#"><i class="fa fa-home"></i></a></li>
+                    <li class="icon-bar"><a  href=""><i class="fa fa-home"></i></a></li>
                     <!-- <li><a href="#">Profile</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
@@ -30,12 +30,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
+                            <li><a href="">Settings</a></li>
+                            
                             <li class="divider"></li>
-                            <li><a href="#">Settings</a></li>
+                            <li><a href="" ng-click="logout()">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -50,7 +50,7 @@
 <hr>
 <div class="container">
 <div class="row">
-  <div class="col-md-5"><input type="text" class="form-control"  placeholder="Search"></div>
+  <div class="col-md-5"><input type="text" class="form-control"  placeholder="Search" ng-model="searchKeyword"></div>
   <div class="col-md-5"></div>
    <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Employee</button></div>
    <!-- Button trigger modal -->
@@ -58,27 +58,26 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Emp Id</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Prj Name</th>
+        <th>In Project</th>
+        <th></th>
+        
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+      <tr ng-repeat="employee in employees | filter : searchKeyword">
+        <td>{{employee.registeredId}}</td>
+         <td>{{employee.employeeName}}</td>
+         <td>{{employee.designation}}</td>
+          <td>{{employee.projectName}}</td>
+           <td>{{employee.isInProject}}</td>
+           <td><button class="icon-button" ng-click="editEmployee(employee)"><i class="material-icons">mode_edit</i></button> <button class="icon-button" ng-click="deleteEmployee(employee.employeeId)"><i class="material-icons">delete</i></button></td>
+           
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+     
     </tbody>
   </table>
 </div>
@@ -102,27 +101,29 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Employee Id</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" ng-model="emp.registeredId">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Employee Name</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" ng-model="emp.employeeName">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Employee Designation</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" ng-model="emp.designation">
           </div>
            <div class="form-group">
       
       <label for="sel2">Skills:</label>
-      <select multiple class="form-control" id="sel2">
-        <option>Java</option>
-        <option>CMS</option>
+      <select multiple class="form-control" id="sel2" ng-model="emp.skills">
+        <option >Java</option>
+        <option >CMS</option>
         <option>.Net</option>
         <option>C</option>
         <option>C#</option>
         <option>QA</option>
         <option>Hadoop</option>
+         <option>Big Data</option>
+          <option>Data Science</option>
         <option>Admin</option>
         <option>HR</option>
         <option>Devops</option>
@@ -133,20 +134,20 @@
     </div>
     <br>
      <label for="sel1">InProject</label>
-      <select class="form-control" id="sel1">
+      <select class="form-control" id="sel1" ng-model="emp.isInProject">
         <option>YES</option>
         <option>NO</option>
     </select>
     <br>
      <div class="form-group">
             <label for="recipient-name" class="col-form-label">Project Name</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" ng-model="emp.projectName">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="addEmployee(emp)">Save changes</button>
       </div>
     </div>
   </div>

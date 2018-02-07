@@ -7,7 +7,7 @@
  */
 angular.module('poc')
 .controller('loginController', 
-  function($scope, $resource, $httpParamSerializer,serviceCalls,$state) {
+  function($scope, $resource, $httpParamSerializer,serviceCalls,$state,$rootScope) {
 	
 	$scope.login=function(user){
 		
@@ -25,6 +25,7 @@ angular.module('poc')
         	var token=response.data;
 
         	sessionStorage.setItem("access_token", token.access_token);
+        	
         	$state.go("dashboard");
 
         })
